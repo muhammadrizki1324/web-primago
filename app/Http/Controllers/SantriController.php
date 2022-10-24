@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Santri;
 use Illuminate\Http\Request;
+use App\Exports\SantriExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SantriController extends Controller
 {
@@ -106,5 +108,9 @@ class SantriController extends Controller
         $santri = Santri::findorfail($id);
         $santri->delete();
         return back()->with('destroy','Data Berhasil Di Destroy');
+    }
+
+    public function exportexcel(){
+        return Excel::download(new SantriExport, 'DataSantri.xlsx');
     }
 }

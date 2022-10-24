@@ -29,6 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ url('') }}/css/style.css" rel="stylesheet">
+
+    <link href="show.css" rel="stylesheet">
 </head>
 
 <body>
@@ -124,7 +126,8 @@
             <!-- Navbar End -->
             @yield('isi')
 
-            @yield('content')
+            @yield('content')   
+                
 
 
             <!-- Footer Start -->

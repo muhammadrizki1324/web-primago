@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegisController;
 use App\Http\Controllers\SantriController;
+use Illuminate\Routing\Router;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,17 +67,11 @@ Route::group(['Middleware' => ['auth']], function() {
 // CRUD TABEL SANTRI
 
 Route::get('/Santri', [SantriController::class, 'index']);
-
 Route::get('/create-santri', [SantriController::class, 'create']);
-
 Route::post('/save-santri', [SantriController::class, 'store']) ->name('simpan');
-
 Route::get('/edit-santri/{id}',[SantriController::class, 'edit']);
-
 Route::put('/update-santri/{id}', [SantriController::class,'update'])->name('update');
-
-
-
-
 Route::delete('/delete-santri/{id}', [SantriController::class,'destroy']);
 
+//Export Excell Data Santri
+Route::get('/exportexcel', [SantriController::class,'exportexcel'])->name('exportexcel');

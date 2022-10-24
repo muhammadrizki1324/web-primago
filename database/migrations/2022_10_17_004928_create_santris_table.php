@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('santris', function (Blueprint $table) {
             $table->id();
-            $table->integer('nipd')();
+            $table->integer('nipd');
             $table->string('nama',20);
             $table->enum('jk',['laki','perempuan']);
-            $table->integer('telp');
+            $table->string('telp');
             $table->string('alamat');
             $table->timestamps();
         });

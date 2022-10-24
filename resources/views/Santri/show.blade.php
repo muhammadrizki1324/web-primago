@@ -3,6 +3,9 @@
 
 <!-- Table Start -->
 <div class="container-fluid pt-4 px-4">
+    <div class="card mb-4">
+       
+    </div>
     <div class="row g-4">
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
@@ -15,7 +18,12 @@
                         
                     @endif
 
-                    <a href="{{ url('create-santri') }}"class= "btn btn-success"href="">Tambah+</a> 
+                    
+                        <a href="{{ url('create-santri') }}"class= "btn btn-info" style="margin-right: 10px" >Tambah+</a> 
+                        <a href="{{ url('/exportexcel') }}"class= "btn btn-success">Export Excell</a>  
+
+                    
+                  
                     <table class="table">
                         <thead>
                                 <tr>
