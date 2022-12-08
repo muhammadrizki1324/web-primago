@@ -2,13 +2,6 @@
 @section('isi')
 
 <!-- Table Start -->
-<div class="container-fluid pt-4 px-4">
-    <div class="card mb-4">
-       
-    </div>
-    <div class="row g-4">
-        <div class="col-12">
-            <div class="bg-light rounded h-100 p-4">
                 <h6 class="mb-4">Responsive Table</h6>
                 <div class="table-responsive">
                     @if ($message = Session::get('success'))
@@ -19,12 +12,12 @@
                     @endif
 
                     
-                        <a href="{{ url('create-santri') }}"class= "btn btn-info" style="margin-right: 10px" >Tambah+</a> 
-                        <a href="{{ url('/exportexcel') }}"class= "btn btn-success">Export Excell</a>  
+                        <a href="{{ url('create-santri') }}"class= "btn btn-info mb-5 " style="margin-right: 10px" >Tambah+</a> 
+                        <a href="{{ url('/exportexcel') }}"class= "btn btn-success mb-5">Export Excell</a>  
 
                     
                   
-                    <table class="table">
+                    <table id="myTable" class="display nowrap" style="width:100%" >
                         <thead>
                                 <tr>
                                     <th scope="col" style="color: black">#</th>
@@ -48,24 +41,82 @@
                                   <td>  
                                       
                     
-                                      <form action="{{ url('delete-santri',$item->id) }}"method="POST">
+                                   <form action="{{ url('delete-santri',$item->id) }}"method="POST">
                                         <a href ="{{  url('edit-santri',$item->id) }}"
                                             class="btn btn-primary" style="color: black">Edit</a>
                                       @csrf
                                       @method('delete')
-                                      <button class="btn btn-secondary"style="color: black" >Hapus</button>
+                                      <button class="btn btn-secondary delete"  style="color: black" >Hapus</button>
                                   </form>
-                                  </td>
+
+                                  {{-- <a href="{{ url('edit-santri',$item->id) }}" class="btn btn-primary text-dark">Edit</a>
+                                  </td> --}}
                                   
                                </tr>
                                @endforeach
                             </tbody>
                     </table>
-                </div>
-            </div>
-        </div>
+                    
+                    {{-- <table id="myTable" class="display nowrap" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Office</th>
+                                <th>Progress</th>
+                                <th>Start date</th>
+                                <th>Salary</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Office</th>
+                                <th>Progress</th>
+                                <th>Start date</th>
+                                <th>Salary</th>
+                            </tr>
+                        </tfoot>
+                    </table> --}}
 
-    </div>
-</div>
+                </div>
+         
 
 @endsection
+
+{{-- Script Data Table --}}
+@section('script')
+<script>
+    $(document).ready( function () {
+$('#myTable').DataTable();
+} );
+</script>
+@endsection
+
+{{-- @section('script2')
+
+    <script>
+        $(.delete).click(function(){
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                })
+                .then((willDelete) => {
+                if (willDelete) {
+                    swal("Poof! Your imaginary file has been deleted!", {
+                    icon: "success",
+                    });
+                } else {
+                    swal("Your imaginary file is safe!");
+                }
+                });    
+        });
+
+               
+    </script>
+
+@endsection --}}

@@ -6,10 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Register - SB Admin</title>
+        <link rel="icon" href="img/cropped-PKBM-PRIMAGO.png">
+        <title>Register - PRIMAGO-SCHOOL</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="{{ asset('/css/login.css') }}">
     </head>
     <body>
         <div id="layoutAuthentication">
@@ -79,6 +81,6 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="{{ asset('js/scripts.js') }}"></script>
     </body>
 </html>
